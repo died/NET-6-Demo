@@ -30,6 +30,7 @@ namespace Net6_Demo.Controllers
             })
             .ToArray();
 
+            //Add to log(send to RabbitMQ) for demo
             foreach(var item in result)
             {
                 _logger.LogInformation(JsonSerializer.Serialize(item));

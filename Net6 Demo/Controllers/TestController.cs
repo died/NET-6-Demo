@@ -12,6 +12,10 @@ namespace Net6_Demo.Controllers
             _log = log;
         }
 
+        /// <summary>
+        /// Add Error log for demo
+        /// </summary>
+        /// <returns></returns>
         [HttpGet]
         public dynamic Index()
         {

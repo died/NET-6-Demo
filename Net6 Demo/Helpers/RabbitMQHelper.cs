@@ -1,5 +1,4 @@
 ﻿using Microsoft.Extensions.Options;
-using Net6_Demo.Providers;
 using RabbitMQ.Client;
 using RabbitMQ.Client.Events;
 using System.Text;
@@ -7,6 +6,9 @@ using System.Text.Json;
 
 namespace Net6_Demo.Helpers
 {
+    /// <summary>
+    /// Handle RabbitMQ publish
+    /// </summary>
     public class RabbitMQHelper
     {
         private readonly IModel _channel;
@@ -37,16 +39,23 @@ namespace Net6_Demo.Helpers
             } 
         }
 
+        /// <summary>
+        /// Get connection for consumer
+        /// </summary>
+        /// <returns></returns>
         public IModel GetConnection()
         {
             return _channel;
         }
 
+        /// <summary>
+        /// Publish message
+        /// </summary>
+        /// <param name="message"></param>
         public void Publish(object message)
         {
             try
             {
-                //Console.WriteLine($"Rabbit:{JsonSerializer.Serialize(message)}");
                 var body = Encoding.UTF8.GetBytes(JsonSerializer.Serialize(message));
                 _channel.BasicPublish(exchange: _exchangeId,
                                         routingKey: _routeKey,
@@ -75,6 +84,5 @@ namespace Net6_Demo.Helpers
                                  consumer: consumer);
             return Task.CompletedTask;
         }
-
     }
 }

@@ -21,6 +21,7 @@ namespace Net6_Demo.Providers
         }
     }
 
+    //I am lazy so put together
     public class RabbitMQLogger : ILogger
     {
         private readonly string _name;

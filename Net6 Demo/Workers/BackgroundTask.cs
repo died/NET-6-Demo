@@ -1,5 +1,8 @@
 ﻿namespace Net6_Demo.Workers
 {
+    /// <summary>
+    /// Handle all background worker here
+    /// </summary>
     public class BackgroundTask : BackgroundService
     {
         private readonly ILogger<BackgroundTask> _log;

@@ -8,6 +8,7 @@ var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddLogging(logger =>
 {
+    //add custom logger
     logger.AddRabbitMQLogger();
 });
 

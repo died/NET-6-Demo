@@ -17,6 +17,11 @@ namespace Net6_Demo.Workers
             _channel = mq.GetConnection();
         }
 
+        /// <summary>
+        /// Register event to consume queue
+        /// </summary>
+        /// <param name="cancellationToken"></param>
+        /// <returns></returns>
         public async Task DoWork(CancellationToken cancellationToken)
         {
             Console.WriteLine($"{GetType().Name} doing background work.");
